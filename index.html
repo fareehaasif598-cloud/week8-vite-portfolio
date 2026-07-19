@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio — Your Name</title>
+  <meta name="description" content="Personal portfolio — WEB101 Week 8 assignment.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- No <link rel="stylesheet"> here — src/style.css is imported
+       from src/main.js instead. Vite treats CSS as a module too. -->
+  <script type="module" crossorigin src="/assets/index-BVlX9Liv.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CNTCht_q.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+       ✏️  Change "Your Name" to your actual name.
+       ============================================================ -->
+  <header class="site-header">
+    <nav class="nav-bar">
+      <a href="#" class="nav-brand">Fareeha<span class="accent">Asif</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#repos">GitHub</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============================================================
+       HERO / ABOUT
+       ✏️  Update the heading, subtitle, and skill tags.
+       ============================================================ -->
+  <section class="hero" id="about">
+    <span class="hero-eyebrow">Web Developer</span>
+    <h1 class="hero-heading">Hi, I'm <span class="accent">Fareeha Asif</span>.</h1>
+    <p class="hero-sub">I build clean, responsive websites and interactive web apps.
+      Currently completing the WEB101 Full-Stack Web Development bootcamp.</p>
+  </section>
+
+  <!-- ============================================================
+       PROJECTS SECTION
+       Do not change the id="project-grid" — src/projects.js targets it.
+       ============================================================ -->
+  <section id="projects">
+    <div class="section-header">
+      <h2>My Projects</h2>
+      <p class="section-desc">Everything I've built, rendered from src/projects.js.</p>
+    </div>
+    <div class="grid" id="project-grid">
+      <!-- Cards are inserted here by renderProjects() in src/projects.js -->
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GITHUB REPOS SECTION (from Week 7)
+       Do not change the ids — src/api.js + src/main.js target them.
+       ============================================================ -->
+  <section id="repos">
+    <div class="section-header">
+      <h2>GitHub Repositories</h2>
+      <p class="section-desc">Fetched live from GitHub, rendered from src/api.js.</p>
+    </div>
+    <div class="grid" id="repo-grid">
+      <div class="loading-state" id="loading-indicator">Loading repositories…</div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT
+       ✏️  Update the email address.
+       ============================================================ -->
+  <section id="contact">
+    <div class="section-header">
+      <h2>Get In Touch</h2>
+      <p class="section-desc">Open to freelance projects, internships, and full-time roles.</p>
+      <a href="mailto:fareehaasif_598@hotmail.com" class="contact-btn">Say Hello &#x2192;</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER — ✏️  Update year and your name.
+       ============================================================ -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Fareeha Asif. Built with npm + Vite for WEB101.</p>
+  </footer>
+
+  <!-- ONE module entry point. Every other file is pulled in through
+       import statements inside main.js — Vite resolves the rest. -->
+
+</body>
+</html>
