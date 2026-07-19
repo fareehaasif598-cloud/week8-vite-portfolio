@@ -24,19 +24,19 @@ export const projects = [
     title: 'Portfolio v1',
     tech: 'html',
     week: 1,
-    desc: 'Write a short description of your Week 1 project here.'
+    desc: 'A personal portfolio page built with semantic HTML, sections, links, images, and basic page structure.'
   },
   {
     title: 'Styled Profile Page',
     tech: 'css',
     week: 2,
-    desc: 'Write a short description of your Week 2 project here.'
+    desc: 'A styled version of my profile page using custom fonts, colors, spacing, borders, shadows, and hover effects. Week 2 project here.'
   },
   {
     title: 'Interactive Quiz App',
     tech: 'javascript',
     week: 5,
-    desc: 'Write a short description of your Week 5 project here.'
+    desc: 'An interactive quiz app using JavaScript functions, arrays, DOM updates, click events, scoring, and a results screen.'
   }
   // TIP: add more objects here as you build more projects!
 ];
@@ -48,7 +48,22 @@ export const projects = [
    Use the classes already in src/style.css:
      .card  .tag  .card-title  .card-desc
    ============================================================= */
-export const projectCard = (p) => ``;
+export const projectCard = (p) =>
+  <article class="card" data-tech="${p.tech}">
+    <span class="tag">Week ${p.week}</span>
+    <h3 class="card-title">${p.title}</h3>
+    <p class="card-desc">${p.desc}</p>
+
+    <a
+    class="card-link"
+    href="${p.link}"
+    target="_blank"
+    rel="noopener noreferrer"
+    >View Demo
+    </a>
+
+  </article>
+  ;
 
 
 /* =============================================================
@@ -58,5 +73,16 @@ export const projectCard = (p) => ``;
    (the .empty-state class is already styled for you).
    ============================================================= */
 export function renderProjects(list) {
+  const projectGrid = document.getElementById('project-grid');
+
+  if (list.length === 0) {
+    projectGrid.innerHTML = `
+      <div class="empty-state">
+        <p>No projects match your filter.</p>
+      </div>
+    `;
+  } else {
+    projectGrid.innerHTML = list.map(projectCard).join('');
+  }
 
 }
