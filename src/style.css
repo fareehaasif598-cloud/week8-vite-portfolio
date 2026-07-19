@@ -1,0 +1,103 @@
+/* =============================================================
+   WEEK 8 STARTER — Base styles, already complete.
+   This file is imported as a module from src/main.js — don't
+   add a <link rel="stylesheet"> tag in index.html, it's not needed.
+   ============================================================= */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --dark: hsl(230, 35%, 12%);
+  --accent: hsl(239, 100%, 70%); /* Vite purple-blue */
+  --bg: hsl(230, 20%, 97%);
+  --surface: #fff;
+  --text: hsl(230, 15%, 18%);
+  --muted: hsl(230, 10%, 50%);
+  --border: hsl(230, 15%, 88%);
+  --radius: 14px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+h1, h2, h3 { font-family: 'Outfit', sans-serif; }
+.accent { color: var(--accent); }
+a { color: inherit; }
+
+/* ===== HEADER ===== */
+.site-header { background: var(--dark); padding: 18px 24px; }
+.nav-bar { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.nav-brand { color: #fff; font-weight: 700; font-size: 18px; text-decoration: none; }
+.nav-links { list-style: none; display: flex; gap: 24px; }
+.nav-links a { color: #cfd2ff; text-decoration: none; font-size: 14px; }
+
+/* ===== HERO ===== */
+.hero { max-width: 700px; margin: 0 auto; text-align: center; padding: 64px 24px 48px; }
+.hero-eyebrow { color: var(--accent); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+.hero-heading { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 10px 0; }
+.hero-sub { color: var(--muted); font-size: 1.05rem; }
+
+/* ===== SECTIONS ===== */
+section { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+.section-header { text-align: center; margin-bottom: 28px; }
+.section-desc { color: var(--muted); font-size: 0.95rem; }
+
+/* ===== GRID + CARDS =====
+   Both #project-grid and #repo-grid use this same .grid / .card
+   system — write your template functions to use these class names. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.card-title { font-size: 1.05rem; }
+.card-desc { color: var(--muted); font-size: 0.9rem; }
+.tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: hsl(239, 100%, 96%);
+  color: var(--accent);
+  width: fit-content;
+}
+.repo-card__header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.repo-card__stars { font-size: 0.85rem; color: var(--muted); white-space: nowrap; }
+
+.loading-state, .error-state, .empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+  grid-column: 1 / -1;
+}
+
+/* ===== CONTACT ===== */
+.contact-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 28px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ===== FOOTER ===== */
+.site-footer { text-align: center; padding: 32px 24px; color: var(--muted); font-size: 0.85rem; }
