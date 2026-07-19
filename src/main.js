@@ -16,11 +16,13 @@
    ============================================================= */
 
 import './style.css';
+import { projects, projectCard, renderProjects } from './projects.js';
+import { fetchRepos, repoCard } from './api.js';
 
 // TODO — import from './projects.js' and './api.js'
 
 
-const USERNAME = 'your-github-username'; // ← change this!
+const USERNAME = 'fareehaasif598-cloud'; // ← change this!
 
 
 /* =============================================================
@@ -32,11 +34,30 @@ const USERNAME = 'your-github-username'; // ← change this!
    4. In finally: hide #loading-indicator either way.
    ============================================================= */
 async function initRepos() {
+   const repoGrid = document.getElementById('repo-grid');
+   const loadingIndicator = document.getElementById('loading-indicator');
 
+   try {
+      loadingIndicator.classList.remove('hidden'); 
+      const repos = await fetchRepos(USERNAME);
+      repoGrid.innerHTML = repos.map(repoCard).join('');
+
+   }
+   catch (error) {
+      repoGrid.innerHTML = `
+      <div class="error-state">
+         <p>⚠️</p>
+         <p>Error: ${error.message}</p>
+       </div>
+       `;
+   }
+   finally {
+      loadingIndicator.classList.add('hidden');
+   }
 }
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  // TODO — call renderProjects(projects)
-  // TODO — call initRepos()
+   renderProjects(projects);
+   initRepos();
 });
