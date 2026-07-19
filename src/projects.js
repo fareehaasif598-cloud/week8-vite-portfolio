@@ -30,7 +30,7 @@ export const projects = [
     title: 'Styled Profile Page',
     tech: 'css',
     week: 2,
-    desc: 'A styled version of my profile page using custom fonts, colors, spacing, borders, shadows, and hover effects. Week 2 project here.'
+    desc: 'A styled version of my profile page using custom fonts, colors, spacing, borders, shadows, and hover effects.'
   },
   {
     title: 'Interactive Quiz App',
@@ -48,22 +48,14 @@ export const projects = [
    Use the classes already in src/style.css:
      .card  .tag  .card-title  .card-desc
    ============================================================= */
-export const projectCard = (p) =>
+export const projectCard = (p) =>`
   <article class="card" data-tech="${p.tech}">
     <span class="tag">Week ${p.week}</span>
     <h3 class="card-title">${p.title}</h3>
     <p class="card-desc">${p.desc}</p>
-
-    <a
-    class="card-link"
-    href="${p.link}"
-    target="_blank"
-    rel="noopener noreferrer"
-    >View Demo
-    </a>
-
+    <span class="tag">${p.tech}</span>
   </article>
-  ;
+  `;
 
 
 /* =============================================================
